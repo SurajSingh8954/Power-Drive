@@ -1,0 +1,138 @@
+.hero {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 120px 120px;
+  color: var(--color-white);
+}
+
+.hero-text {
+  animation: hero-rise 0.7s ease both;
+}
+
+.hero-text p {
+  max-width: 640px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.08;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+}
+
+.hero-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  width: max-content;
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.hero-explore p {
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+}
+
+.hero-explore img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+
+.hero-explore:hover img,
+.hero-explore:focus-visible img {
+  transform: translateX(6px);
+}
+
+.hero-dot-play {
+  position: absolute;
+  left: 120px;
+  right: 120px;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.25s ease, width 0.25s ease;
+}
+
+.hero-dot:hover {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.hero-dot.active {
+  width: 30px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--color-accent-end), var(--color-accent-start));
+}
+
+.hero-play {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  overflow: hidden;
+  background: none;
+  cursor: pointer;
+}
+
+.hero-play img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 0 28px 140px;
+    gap: 24px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-dot-play {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-text {
+    animation: none;
+  }
+}
